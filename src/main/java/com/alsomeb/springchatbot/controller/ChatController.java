@@ -57,7 +57,7 @@ public class ChatController {
     @GetMapping
     public ResponseEntity<Message> promptOpenAI(@RequestParam String prompt) {
         final ChatRequest request = new ChatRequest(model, prompt);
-        ChatResponse response = restTemplate.postForObject(url, request, ChatResponse.class);
+        final ChatResponse response = restTemplate.postForObject(url, request, ChatResponse.class);
 
         if(response != null) {
             return new ResponseEntity<>(
